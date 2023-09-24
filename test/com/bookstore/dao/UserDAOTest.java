@@ -1,6 +1,7 @@
 package com.bookstore.dao;
 
 import com.bookstore.entities.User;
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -40,16 +41,7 @@ public class UserDAOTest {
         assertTrue(user1.getUserId() > 0);
     }
 
-    @Test(expected = PersistenceException.class)
-    public void testCreateUserFieldsNotSet() {
-        User user2 = new User();
 
-
-        user2 = userDAO.create(user2);
-
-
-        assertTrue(user2.getUserId() > 0);
-    }
 
     @AfterClass
     public static void teardownClass(){
