@@ -5,9 +5,17 @@
 <head>
     <meta charset="ISO-8859-1">
     <title>Evergreen Books</title>
+
 </head>
 <body>
-   <h1>Welcome</h1>
+
+<jsp:directive.include file="header.jsp" />
+
+<div>
+    <h3>This is main content: New Books, Bestselling Books</h3>
+</div>
+
+<jsp:directive.include file="footer.jsp" />
 
 </body>
 </html> 

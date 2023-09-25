@@ -7,16 +7,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
-@WebServlet(name = "helloServlet", value = "/")
-public class HelloServlet extends HttpServlet {
+@WebServlet(name = "adminServlet", value = "/admin")
+public class AdminHomeServlet extends HttpServlet {
     private String message;
 
-    public void init() {
-        message = "Hel!!!!lo!!";
-    }
-
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String page = "frontend/index.jsp";
+
+        String page = "admin/index.jsp";
+        System.out.println("pidor");
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(page);
         requestDispatcher.forward(request,response);
     }
