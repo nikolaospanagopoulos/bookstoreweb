@@ -32,13 +32,30 @@ public class UserDAOTest {
     public void testCreateUsers() {
         User user1 = new User();
         user1.setEmail("test@gmail.com");
-        user1.setFullName("nikos p test");
+        user1.setFullName("nmisqfd");
         user1.setPassword("Jimmy");
 
         user1 = userDAO.create(user1);
 
 
         assertTrue(user1.getUserId() > 0);
+    }
+    @Test
+    public void updateTest(){
+        User toUpdate = userDAO.getUserByName("nmisqfd");
+        System.out.println(toUpdate);
+        toUpdate.setEmail("panaras254@gmail.com");
+        userDAO.update(toUpdate);
+        assertEquals("That email changed", "panaras254@gmail.com", toUpdate.getEmail());
+    }
+
+    @Test
+    public void testDelete(){
+        User toDelete = userDAO.getUserByName("nmisqfd");
+        Long userToDeleteId = toDelete.getUserId();
+        userDAO.delete(userToDeleteId);
+        User toCheck = userDAO.get(userToDeleteId);
+        assertNull(toCheck);
     }
 
 

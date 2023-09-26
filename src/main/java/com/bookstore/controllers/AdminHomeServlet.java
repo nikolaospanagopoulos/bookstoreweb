@@ -14,7 +14,7 @@ public class AdminHomeServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         String page = "admin/index.jsp";
-        System.out.println("pidor");
+
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(page);
         requestDispatcher.forward(request,response);
     }
