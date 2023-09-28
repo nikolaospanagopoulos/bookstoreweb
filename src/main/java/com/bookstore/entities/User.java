@@ -1,14 +1,15 @@
 package com.bookstore.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
+@NamedQueries(
+        {
+                @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u ORDER BY u.fullName"),
+                @NamedQuery(name = "User.countAll",query = "select COUNT (*) FROM User u")
+        }
+)
 public class User {
 
     @Id

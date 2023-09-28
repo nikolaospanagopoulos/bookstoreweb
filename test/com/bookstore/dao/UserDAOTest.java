@@ -11,6 +11,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceException;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class UserDAOTest {
@@ -28,6 +30,11 @@ public class UserDAOTest {
         userDAO = new UserDAO(entityManager);
     }
 
+    @Test
+    public void testListUsers(){
+        List<User> usersList = userDAO.listAll();
+        assertFalse(usersList.isEmpty());
+    }
     @Test
     public void testCreateUsers() {
         User user1 = new User();
@@ -49,6 +56,11 @@ public class UserDAOTest {
         assertEquals("That email changed", "panaras254@gmail.com", toUpdate.getEmail());
     }
 
+    @Test
+    public void countUsersTest(){
+        long usersCount = userDAO.count();
+        assertTrue(usersCount >=0);
+    }
     @Test
     public void testDelete(){
         User toDelete = userDAO.getUserByName("nmisqfd");
