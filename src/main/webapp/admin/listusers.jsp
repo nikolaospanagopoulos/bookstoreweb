@@ -14,8 +14,15 @@
 <body>
 <jsp:directive.include file="header.jsp" />
 Admin Dashboard
+<h2><a href="userForm.jsp">Create New User</a></h2>
+<c:if test="${not empty requestScope.success}">
+    <div class="message">
+        User created
+    </div>
 
+</c:if>
    <div>
+
        <table>
            <tr>
                <th>Index</th>
@@ -42,5 +49,15 @@ Admin Dashboard
 
 
 <jsp:directive.include file="footer.jsp" />
+<script>
+    var messageContainer = document.querySelector(".message")
+    if(messageContainer){
+        setTimeout(function (){
+            console.log(123)
+            messageContainer.style.visibility = "hidden";
+        },2000)
+    }
+</script>
 </body>
+
 </html>

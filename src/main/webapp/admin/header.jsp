@@ -1,4 +1,4 @@
 <div>
     Admin Header
-    <a href="admin/listusers">Users Management</a>
+    <a href="listusers">Users Management</a>
 </div>

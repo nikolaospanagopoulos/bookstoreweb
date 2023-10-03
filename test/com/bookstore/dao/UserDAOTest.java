@@ -30,11 +30,7 @@ public class UserDAOTest {
         userDAO = new UserDAO(entityManager);
     }
 
-    @Test
-    public void testListUsers(){
-        List<User> usersList = userDAO.listAll();
-        assertFalse(usersList.isEmpty());
-    }
+
     @Test
     public void testCreateUsers() {
         User user1 = new User();
@@ -60,6 +56,16 @@ public class UserDAOTest {
     public void countUsersTest(){
         long usersCount = userDAO.count();
         assertTrue(usersCount >=0);
+    }
+    @Test
+    public void testFindByEmail(){
+        User found = userDAO.getUserByEmail("panaras254@gmail.com");
+        assertEquals("panaras254@gmail.com", found.getEmail());
+    }
+    @Test
+    public void testListUsers(){
+        List<User> usersList = userDAO.listAll();
+        assertFalse(usersList.isEmpty());
     }
     @Test
     public void testDelete(){

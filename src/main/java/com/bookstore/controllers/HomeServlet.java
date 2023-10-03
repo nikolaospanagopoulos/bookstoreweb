@@ -7,7 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
-@WebServlet(name = "helloServlet", value = "/")
+@WebServlet("")
 public class HomeServlet extends HttpServlet {
     private String message;
 

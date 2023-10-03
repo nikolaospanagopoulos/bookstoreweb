@@ -1,5 +1,7 @@
 package com.bookstore.entities;
 
+import org.hibernate.sql.Select;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,7 +9,8 @@ import javax.persistence.*;
 @NamedQueries(
         {
                 @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u ORDER BY u.fullName"),
-                @NamedQuery(name = "User.countAll",query = "select COUNT (*) FROM User u")
+                @NamedQuery(name = "User.countAll",query = "select COUNT (*) FROM User u"),
+                @NamedQuery(name="User.findByEmail",query = "select u from User u where u.email=:email")
         }
 )
 public class User {
